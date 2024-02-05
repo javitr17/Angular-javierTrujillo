@@ -1,0 +1,22 @@
+<p>user works!</p>
+<section>
+@if(estaLogado){
+    <p>Bienvenido, {{username}}</p>
+    <img 
+    (click)="saludar()"
+    src="https://statics-maker.llt-services.com/cad/images/2023/07/18/optimized/0d2ac899-9d99-481a-857b-a544353c7da1-239.jpg"/>
+}@else{
+    <p>Iniciar Sesion</p>
+    <input (click)="cambiarEstado()" type="button" value="Iniciar sesión"/>
+}
+
+<app-games 
+(comunicadorEventDeHijoAPadre)="getFavourite($event)"
+nombreUsuario={{username}}>
+
+@if(juegoFavorito!==''){
+    <p>Tu juego favorito es {{juegoFavorito}}</p>
+}
+
+</app-games>
+</section>
